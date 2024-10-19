@@ -1,12 +1,20 @@
 <template>
     <div class="logo">
         <img src="@/assets/logos.png" alt="logo" />
-        <span class="title">图书管理系统</span>
+        <span v-show="!collapsed" class="title">图书管理系统</span>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, watch, ref } from 'vue'
+import { computed  } from 'vue'
+import { collapseStore } from '@/store/collapse';
+
+// 获取 store
+const store = collapseStore()
+// collapsed
+const collapsed = computed(() => {
+    return store.getCollapse
+})
 </script>
 
 <style lang="scss" scoped>
@@ -17,7 +25,7 @@ import { computed, watch, ref } from 'vue'
     line-height: 50px;
     display: flex;
     align-items: center;
-    padding-left: 12px;
+    padding-left: 16px;
     color: #fff;
 img {
         width: 43px;

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory} from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router' // 使用 'type' 进行仅类型导入
-import Layout from '@/layout/Index.vue'
+import Layout from '@/layout/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {

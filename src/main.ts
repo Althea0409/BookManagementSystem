@@ -16,5 +16,5 @@ const app = createApp(App);
 Object.keys(Icons).forEach((key)=>{
     app.component(key,Icons[key as keyof typeof Icons])
 })
-// 使用
-app.use(Antd).use(router).mount('#app');
+// 注册
+app.use(Antd).use(router).use(pinia).mount('#app');

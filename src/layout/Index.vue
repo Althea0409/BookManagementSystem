@@ -1,6 +1,8 @@
 <template>
     <a-layout class="layout">
-      <a-layout-sider class="asside">Sider</a-layout-sider>
+      <a-layout-sider class="asside">
+        <menu-bar></menu-bar>
+      </a-layout-sider>
       <a-layout>
         <a-layout-header class="header">Header</a-layout-header>
         <a-layout-content class="main">Content</a-layout-content>
@@ -9,12 +11,13 @@
   </template>
   <script setup lang='ts'>
   import { ref, reactive } from 'vue'
+  import MenuBar from './menu/MenuBar.vue'
   </script>
   <style scoped lang='scss'>
   .layout {
     height: 100%;
     .asside {
-       background-color: rgb(50, 182, 205);
+       background-color: rgb(255, 255, 255);
       border-right: 1px solid #f0f0f0 !important;
     }
     .header {

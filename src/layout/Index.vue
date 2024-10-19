@@ -7,7 +7,9 @@
             <a-layout-header class="header">
                 <Header></Header>
             </a-layout-header>
-            <a-layout-content class="main">Content</a-layout-content>
+            <a-layout-content class="main">
+                <router-view></router-view>
+            </a-layout-content>
         </a-layout>
     </a-layout>
 </template>
@@ -35,8 +37,10 @@ const collapsed = computed(() => {
     .asside {
         background-color: rgb(255, 255, 255);
         border-right: 1px solid #f0f0f0 !important;
+        :deep(.ant-menu-inline){
+            border-right: none !important;
+        }
     }
-
     .header {
         height: 50px;
         padding: 0px 20px;
@@ -48,7 +52,7 @@ const collapsed = computed(() => {
 
     .main {
         padding: 20px !important;
-        background-color: #F1F5FE;
+        background-color: #F1F5FE !important;
     }
 }
 </style>

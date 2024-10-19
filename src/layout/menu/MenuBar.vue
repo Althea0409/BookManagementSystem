@@ -11,25 +11,25 @@
             <template #icon>
                 <BarChartOutlined />
             </template>
-            <span to="/dashboard">数据总览</span>
+            <router-link to="/dashboard">数据总览</router-link>
         </a-menu-item>
         <a-menu-item key="/books">
             <template #icon>
                 <BookOutlined />
             </template>
-            <span to="/books">书籍管理</span>
+            <router-link to="/books">书籍管理</router-link>
         </a-menu-item>
         <a-menu-item key="/borrow">
             <template #icon>
                 <LogoutOutlined />
             </template>
-            <span to="/borrow">借阅管理</span>
+            <router-link to="/borrow">借阅管理</router-link>
         </a-menu-item>
-        <a-menu-item key="/member">
+        <a-menu-item key="/members">
             <template #icon>
                 <CrownOutlined />
             </template>
-            <span to="/member">会员管理</span>
+            <router-link to="/members">会员管理</router-link>
         </a-menu-item>
 
         <!-- <a-sub-menu key="sub1">

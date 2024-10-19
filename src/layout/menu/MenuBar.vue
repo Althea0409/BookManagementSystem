@@ -1,4 +1,5 @@
 <template>
+    <menu-logo></menu-logo>
     <a-menu
         v-model:openKeys="menuData.openKeys"
         v-model:selectedKeys="menuData.selectedKeys"
@@ -47,6 +48,9 @@
 
 <script setup lang='ts'>
 import { ref, reactive } from 'vue'
+// 引入 MenuLogo 组件 
+import MenuLogo from './MenuLogo.vue';
+
 const menuData = reactive({
     collapsed:false,
     selectedKeys: ['1'],

@@ -7,6 +7,9 @@ import 'ant-design-vue/dist/reset.css';
 import router from './router/index';
 // 引入图标
 import * as Icons from "@ant-design/icons-vue";
+// 引入Pinia
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 
 const app = createApp(App);
 // 注册图标组件

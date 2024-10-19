@@ -11,25 +11,25 @@
             <template #icon>
                 <BarChartOutlined />
             </template>
-            <router-link to="/dashboard">数据总览</router-link>
+            <router-link to="/dashboard" class="menu-item">数据总览</router-link>
         </a-menu-item>
         <a-menu-item key="/books">
             <template #icon>
                 <BookOutlined />
             </template>
-            <router-link to="/books">书籍管理</router-link>
+            <router-link to="/books" class="menu-item">书籍管理</router-link>
         </a-menu-item>
         <a-menu-item key="/borrow">
             <template #icon>
                 <LogoutOutlined />
             </template>
-            <router-link to="/borrow">借阅管理</router-link>
+            <router-link to="/borrow" class="menu-item">借阅管理</router-link>
         </a-menu-item>
         <a-menu-item key="/members">
             <template #icon>
                 <CrownOutlined />
             </template>
-            <router-link to="/members">会员管理</router-link>
+            <router-link to="/members" class="menu-item">会员管理</router-link>
         </a-menu-item>
 
         <!-- <a-sub-menu key="sub1">
@@ -52,14 +52,14 @@ import MenuLogo from './MenuLogo.vue';
 import { routes } from '@/router/index';
 import { reactive, onMounted, watch } from 'vue'
 
-//当前路由
+// 当前路由
 const route = useRoute()
 
 const menuData = reactive({
-    //所有一级菜单的path
-    rootSubmenuKeys: ['/system', '/classroomRoot', '/courseRoot', '/teacherRoot', '/scheduleRoot'],
+    // 所有一级菜单的path
+    // rootSubmenuKeys: ['/system', '/classroomRoot', '/courseRoot', '/teacherRoot', '/scheduleRoot'],
     collapsed: false,
-    //选中的菜单的path，设置为当前路由的path
+    // 选中的菜单的path，设置为当前路由的path
     selectedKeys: [''],
     openKeys: [''],
     preOpenKeys: [],
@@ -76,10 +76,10 @@ const onOpenChange = (openKeys: string[]) => {
     }
 };
 
-//解决刷新之后，选中菜单，有上级的时候，打开上级菜单
+// 解决刷新之后，选中菜单，有上级的时候，打开上级菜单
 const setMenuOpen = (result: any) => {
     for (let i = 0; i < routes.length; i++) {
-        //循环【顶级菜单数组列表】 循环的数组下标用i表示
+        // 循环【顶级菜单数组列表】 循环的数组下标用i表示
         if (result[i].children) {
             console.log(result[i])
             // 如果这个菜单没有【子菜单】 就不继续了（没有子菜单就是【点击可跳转页面但不会展开】的顶级菜单）
@@ -94,22 +94,22 @@ const setMenuOpen = (result: any) => {
         }
     }
 };
-//解决刷新之后，回显原来选中的菜单
+// 解决刷新之后，回显原来选中的菜单
 const selectKey = () => {
     if (menuData.selectedKeys.some(item => item === route.path)) return;
     menuData.selectedKeys.push(route.path)
 }
-//监听当前路由
+// 监听当前路由
 watch(() => route.path, () => {
-    //清空一下之前的数据，防止出现多选的情况
+    // 清空一下之前的数据，防止出现多选的情况
     menuData.selectedKeys = [''];
-    //重新设置选中的数据
+    // 重新设置选中的数据
     selectKey();
-    //此行的作用，解决选项卡关闭，左侧菜单打开
+    // 此行的作用，解决选项卡关闭，左侧菜单打开
     setMenuOpen(routes);
 })
 onMounted(() => {
-    //首次进入获取当前路由
+    // 首次进入获取当前路由
     selectKey();
     setMenuOpen(routes);
 })
@@ -117,4 +117,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang='scss'>
+.menu-item {
+    font-weight: bold; 
+}
 </style>

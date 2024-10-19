@@ -5,7 +5,6 @@
         v-model:selectedKeys="menuData.selectedKeys"
         mode="inline"
         theme="light"
-        :inline-collapsed="menuData.collapsed"
     >
         <a-menu-item key="/dashboard">
             <template #icon>
@@ -47,16 +46,54 @@
 </template>
 
 <script setup lang='ts'>
-import { ref, reactive } from 'vue'
-// 引入 MenuLogo 组件 
+import { useRoute } from 'vue-router';
 import MenuLogo from './MenuLogo.vue';
+import { routes } from '@/router';
 
+import { reactive, onMounted, watch } from 'vue'
+//当前路由
+const route = useRoute()
 const menuData = reactive({
-    collapsed:false,
-    selectedKeys: ['1'],
-    openKeys: ['sub1'],
-    preOpenKeys: ['sub1'],
-}) 
+    //当前选中的菜单的key  
+    //当前路由的path设置为选中的菜单的key
+    selectedKeys: [''],
+    openKeys: [''],
+    // preOpenKeys: ['sub1'],
+})
+//设置当前选中菜单的key
+const selectkey = () => {
+    menuData.selectedKeys.push(route.path)
+}
+// SubMenu 展开/关闭的回调,解决一次只能打开一个菜单
+const onOpenChange = (openKeys: string[]) => {
+    console.log(openKeys)
+    if (openKeys.length !== 0) {
+        menuData.openKeys = [openKeys[1]]
+    } else {
+        menuData.openKeys = ['']
+    }
+};
+//解决刷新之后，选中菜单，有上级的时候，打开上级菜单
+const setMenuOpen = (result: any) => {
+    for (let i = 0; i < routes.length; i++) {
+        if (result[i].children) {
+            console.log(result[i])
+            for (let y = 0; y < result[i].children.length; y++) {
+                if (result[i].children[y].path === route.path) {
+                    menuData.openKeys = [result[i].path]
+                }
+            }
+        }
+    }
+};
+//路由发生变化时也要设置
+watch(() => route.path, () => {
+    selectkey()
+})
+onMounted(() => {
+    selectkey()
+    setMenuOpen(routes)
+})
 </script>
 
 <style scoped lang='scss'>

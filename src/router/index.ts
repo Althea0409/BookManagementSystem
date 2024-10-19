@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from 'vue-router' // 使用 'type' 进行仅类�
 
 import Layout from '@/layout/index.vue'
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,

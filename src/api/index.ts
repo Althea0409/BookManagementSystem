@@ -48,3 +48,25 @@ export const deleteMember = (memberId: number) => {
 export const getMemberDetail = (memberId: number) => {
     return api.get(`/members/${memberId}`);
 };
+
+/* 借阅API */
+
+// 借阅图书
+export const borrowBook = (borrowData: any) => {
+    return api.post('/borrow', borrowData);
+}
+
+// 归还图书
+export const returnBook = (returnData: any) => {
+    return api.post('/return', returnData);
+}
+
+// 查询会员借阅历史
+export const getBorrowHistory = (memberId: number) => {
+    return api.get(`/members/${memberId}/borrow-history`);
+}
+
+// 查询图书借阅次数
+export const getBookBorrowCount = (bookId: number) => {
+    return api.get(`/books/${bookId}/borrow-count`);
+}

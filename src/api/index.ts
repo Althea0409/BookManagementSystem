@@ -27,3 +27,24 @@ export const getBorrowCount = (bookId: number) => {
     return api.get(`/books/${bookId}/borrow-count`);
 }
 
+/* 会员API */
+
+// 增加会员
+export const addMember = (memberData: any) => {
+    return api.post('/members', memberData);
+};
+
+// 查询会员
+export const queryMembers = (params: any) => {
+    return api.get('/members', { params });
+};
+
+// 删除会员
+export const deleteMember = (memberId: number) => {
+    return api.delete(`/members/${memberId}`);
+};
+
+// 查询会员详细信息
+export const getMemberDetail = (memberId: number) => {
+    return api.get(`/members/${memberId}`);
+};

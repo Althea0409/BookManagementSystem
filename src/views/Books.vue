@@ -28,10 +28,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import BookForm from '../components/BookForm.vue';
-import BookList from '../components/BookList.vue';
-import BookDetail from '../components/BookDetail.vue';
-import { queryBooks } from '../api';
+import BookForm from '../components/books/BooksForm.vue';
+import BookList from '../components/books/BooksList.vue';
+import BookDetail from '../components/books/BooksDetail.vue';
+import { queryBooks } from '@/api';
 
 export default defineComponent({
     name: 'Books',

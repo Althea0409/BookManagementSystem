@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
-import { queryBooks, deleteBook } from '../api';
+import { queryBooks, deleteBook } from '@/api';
 
 export default defineComponent({
     name: 'BookList',

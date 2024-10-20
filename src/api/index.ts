@@ -5,7 +5,7 @@ const api = axios.create({
     timeout: 10000
 });
 
-// 图书API
+/* 图书API */
 
 // 增加图书
 export const addBook = (bookData: any) => {
@@ -26,3 +26,4 @@ export const deleteBook = (bookId: number) => {
 export const getBorrowCount = (bookId: number) => {
     return api.get(`/books/${bookId}/borrow-count`);
 }
+

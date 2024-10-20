@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { addBook } from '../api';
+import { addBook } from '@/api';
 
 export default defineComponent({
     name: 'BookForm',

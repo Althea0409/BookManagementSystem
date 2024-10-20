@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
-import { getBorrowCount } from '../api';
+import { getBorrowCount } from '@/api';
 
 export default defineComponent({
     name: 'BookDetail',

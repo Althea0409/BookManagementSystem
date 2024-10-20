@@ -7,7 +7,9 @@
                     style="width: 300px"
                     @search="handleSearch"
                 />
-                <a-button type="primary" class="add-button" @click="showAddBookModal">新增图书</a-button>
+                <a-button type="primary" class="add-button" @click="showAddBookModal">
+                    新增图书
+                </a-button>
             </div>
         </a-card>
         <a-card class="book-list-card">

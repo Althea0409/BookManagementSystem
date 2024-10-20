@@ -5,7 +5,7 @@ const api = axios.create({
     timeout: 10000
 });
 
-/* 图书API */
+/* ----- 图书API ----- */
 
 // 增加图书
 export const addBook = (bookData: any) => {
@@ -27,7 +27,7 @@ export const getBorrowCount = (bookId: number) => {
     return api.get(`/books/${bookId}/borrow-count`);
 }
 
-/* 会员API */
+/* ----- 会员API ----- */
 
 // 增加会员
 export const addMember = (memberData: any) => {
@@ -49,7 +49,7 @@ export const getMemberDetail = (memberId: number) => {
     return api.get(`/members/${memberId}`);
 };
 
-/* 借阅API */
+/* ----- 借阅API ----- */
 
 // 借阅图书
 export const borrowBook = (borrowData: any) => {

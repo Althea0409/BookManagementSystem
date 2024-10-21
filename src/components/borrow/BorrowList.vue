@@ -2,7 +2,7 @@
     <a-table :columns="columns" :data-source="borrows" row-key="bookId">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action'">
-                <a-button type="danger" @click="handleReturn(record.bookId)">归还</a-button>
+                <a-button class="custom-return-button" @click="handleReturn(record.bookId)">归还</a-button>
             </template>
         </template>
     </a-table>
@@ -96,4 +96,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.custom-return-button {
+    color: #1677FF; /* 设置字体颜色为蓝色 */
+    border-color: #1677FF; /* 设置边框颜色为蓝色 */
+}
+
+
+</style>

@@ -2,7 +2,7 @@
     <a-table :columns="columns" :data-source="members" row-key="member_id">
         <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'action'">
-                <a-button type="danger" @click="handleDelete(record.member_id)">删除</a-button>
+                <a-button danger @click="handleDelete(record.member_id)">删除</a-button>
             </template>
         </template>
     </a-table>
